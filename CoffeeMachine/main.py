@@ -19,16 +19,17 @@ def clear_osx():
 MENU['espresso']['ingredients']['milk'] = 0
 
 while not end:
-    # TODO: Prompt user, ask what they would like? Check user input, once drink is dispensed, this prompt should show
+    # Prompt user, ask what they would like? Check user input, once drink is dispensed, this prompt should show
     #  again
     user_input: str = input('What would you like? (espresso/latte/cappuccino):\n').lower()
-    # TODO: Make it so when 'off' is entered, the coffee machine turns off - code halts
+    # when 'off' is entered, the coffee machine turns off - code halts
     if user_input == 'off':
         print('closing for maintenance')
         end = True
         clear_windows()
         clear_osx()
-    # TODO: When the user enters 'report' to the prompt,  a report should be generated that shows the current values
+    # When the user enters 'report' to the prompt,  a report should be generated that shows the current values of
+    # resources
     elif user_input == 'report':
         print(f'water: {resources["water"]}\nmilk: {resources["milk"]}\ncoffee: {resources["coffee"]}\nmoney: ${money}')
     elif user_input in MENU:
@@ -74,9 +75,3 @@ while not end:
                         money += MENU[user_input]['cost']
                 # then vend the bev
                 print(f'Here is your {user_input}☕. Enjoy!')
-# TODO: When user selects a drink, program should check whether there are sufficient resources to make said drink
-# TODO: If there are sufficient resources, prompt user to enter coins AND calculate the monetary value of coins
-# TODO: check if user has inserted sufficient amount of money - if so, add cost of drink to machine as profit
-# TODO: if user gives too much money, offer change - rounded to two decimal places
-# TODO: if transaction is successful and there are enough resources to make drink, deduct said ingredients from machine
-# TODO: once all resources are deducted, tell the user 'Here is your {drink}. Enjoy!'
